@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Condominio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Administración de Departamentos</h1>
+      <p>Registra, consulta y controla el estado de pago de cada unidad.</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Nueva unidad</h2>
+        <form id="unit-form" class="form-grid">
+          <label>
+            Torre/Bloque
+            <input id="tower" name="tower" required placeholder="A" maxlength="20" />
+          </label>
+          <label>
+            Número de departamento
+            <input id="unitNumber" name="unitNumber" required placeholder="101" maxlength="20" />
+          </label>
+          <label>
+            Propietario
+            <input id="owner" name="owner" required placeholder="Ana Pérez" maxlength="60" />
+          </label>
+          <label>
+            Cuota mensual (USD)
+            <input id="fee" name="fee" required type="number" min="0" step="0.01" placeholder="120" />
+          </label>
+          <label>
+            Estado de pago
+            <select id="status" name="status" required>
+              <option value="Al día">Al día</option>
+              <option value="Pendiente">Pendiente</option>
+            </select>
+          </label>
+          <button type="submit">Guardar unidad</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="table-header">
+          <h2>Unidades registradas</h2>
+          <button id="clear-data" class="danger" type="button">Borrar todo</button>
+        </div>
+        <div class="filters">
+          <label>
+            Buscar
+            <input id="search" placeholder="Torre, número o propietario" />
+          </label>
+          <label>
+            Filtrar por estado
+            <select id="status-filter">
+              <option value="Todos">Todos</option>
+              <option value="Al día">Al día</option>
+              <option value="Pendiente">Pendiente</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Torre</th>
+                <th>Dpto.</th>
+                <th>Propietario</th>
+                <th>Cuota</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="units-table"></tbody>
+          </table>
+        </div>
+        <p id="empty-state" class="empty-state">No hay unidades registradas.</p>
+      </section>
+    </main>
+
+    <template id="row-template">
+      <tr>
+        <td data-key="tower"></td>
+        <td data-key="unitNumber"></td>
+        <td data-key="owner"></td>
+        <td data-key="fee"></td>
+        <td data-key="status"></td>
+        <td>
+          <button class="toggle-status" type="button">Cambiar estado</button>
+          <button class="danger remove" type="button">Eliminar</button>
+        </td>
+      </tr>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

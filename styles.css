@@ -1,0 +1,139 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #1b1b1f;
+  background: #f5f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  background: linear-gradient(135deg, #2d4a9d, #00a6a6);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0 0 0.5rem;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+  align-items: end;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: #3a3a45;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #cfd5e3;
+}
+
+button {
+  cursor: pointer;
+  background: #2d4a9d;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  filter: brightness(1.04);
+}
+
+button.danger {
+  background: #c03549;
+}
+
+.table-header,
+.filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 0.7rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.7rem 0.5rem;
+  border-bottom: 1px solid #e3e8f1;
+}
+
+tbody tr:hover {
+  background: #f8fbff;
+}
+
+.status-pill {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  color: white;
+}
+
+.status-paid {
+  background: #1d8f55;
+}
+
+.status-pending {
+  background: #e58600;
+}
+
+.empty-state {
+  margin: 0.6rem 0 0;
+  color: #6c7280;
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: 1.4rem 1rem;
+  }
+
+  th,
+  td {
+    font-size: 0.9rem;
+  }
+}
